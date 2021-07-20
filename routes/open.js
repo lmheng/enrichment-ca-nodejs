@@ -59,7 +59,7 @@ router.route("/articles").get(async (req, resp) => {
 router.route("/article/:id").get(async (req, resp) => {
   try {
     const id = req.params["id"];
-    let outcome = await Article.findById(id);
+    let outcome = await Article.find({ _id: id });
 
     resp.status(200).json(outcome);
   } catch (error) {
