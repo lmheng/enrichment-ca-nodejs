@@ -10,11 +10,7 @@ const authenticated = require("./routes/authenticated");
 
 app.use(express.urlencoded({ extended: true, limit: "500mb" }));
 app.use(express.json({ limit: "500mb", type: "application/json" }));
-app.use(
-  cors({
-    origin: ["http://localhost:4200"],
-  })
-);
+app.use(cors({ origin: "*" }));
 
 require("./helpers/db");
 
