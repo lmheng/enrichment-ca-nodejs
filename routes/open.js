@@ -24,7 +24,7 @@ router.route("/login").post(async (req, resp) => {
           if (err) throw err;
 
           if (!isMatch) {
-            throw new Error(401);
+            throw new Error("Wrong Authentication");
           }
         });
 
@@ -41,11 +41,7 @@ router.route("/login").post(async (req, resp) => {
 
     resp.status(200).json({ token: token, username: user_login.username });
   } catch (error) {
-    if (error === 401) {
-      resp.status(401).send("Wrong Authentication");
-    } else {
-      resp.status(500).send(error);
-    }
+    resp.status(500).send(error);
   }
 });
 
