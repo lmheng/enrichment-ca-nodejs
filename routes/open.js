@@ -65,7 +65,7 @@ router.route("/article/:id").get(async (req, resp) => {
       return new ObjectId(this.toString());
     };
 
-    let outcome = await Article.findById(id.toObjectId);
+    let outcome = await Article.findById(id.toObjectId());
 
     resp.status(200).json(outcome);
   } catch (error) {
