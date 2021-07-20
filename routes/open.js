@@ -56,4 +56,16 @@ router.route("/articles").get(async (req, resp) => {
   }
 });
 
+router.route("/article/:id").get(async (req, resp) => {
+  try {
+    const id = req.params["id"];
+    let outcome = await Article.findById(id);
+
+    resp.status(200).json(outcome);
+  } catch (error) {
+    console.log(error);
+    resp.status(500).send(error);
+  }
+});
+
 module.exports = router;
