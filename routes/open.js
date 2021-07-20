@@ -24,7 +24,7 @@ router.route("/login").post(async (req, resp) => {
           if (err) throw err;
 
           if (!isMatch) {
-            resp.status(401).send();
+            resp.status(401).send("Wrong Authentication");
             return;
           }
         });
