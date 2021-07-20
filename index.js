@@ -13,7 +13,6 @@ app.use(express.json({ limit: "500mb", type: "application/json" }));
 app.use(
   cors({
     origin: ["http://localhost:4200"],
-    credentials: true,
   })
 );
 
